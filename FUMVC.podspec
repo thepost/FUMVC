@@ -9,7 +9,8 @@
 Pod::Spec.new do |s|
   s.name             = 'FUMVC'
   s.version          = '0.1.0'
-  s.summary          = 'iOS Fundamentals of MVC'	
+  s.summary          = 'iOS Fundamentals of MVC'
+	s.swift_version 	 = '4.2'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -24,7 +25,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/thepost/FUMVC'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'thepost' => 'mikepost@live.com' }
+  s.author           = { 'Mike Post' => 'mikepost@live.com' }
   s.source           = { :git => 'https://github.com/thepost/FUMVC.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
