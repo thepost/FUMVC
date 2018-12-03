@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FUMVC_Example' do
+  pod 'FUMVC', :path => '../'
+
+  target 'FUMVC_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
