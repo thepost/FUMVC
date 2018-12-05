@@ -3,9 +3,13 @@ iOS Fundamentals of MVC.
 
 ## Description
 
-FUMVC is a library to demonstrate and provide common architectural abstractions in a very lean way, based on a clean and minimal MVC. Its usage is embedded in the **Fundamentals of MVC**, and is intended to demonstrate how elegant MVC can be despite the FU animosity towards it, hence FUMVC ;)
+The purpose of FUMVC is to provide common architectural abstractions in a very lean way, based on a clean and minimal MVC pattern.
 
-Initially focuses on Core Data, specifically a Model Controller using generics to reduce boilerplate code in Core Data CRUD operations.
+Its implementation is embedded in the **Fundamentals of MVC**, and is intended to demonstrate how elegant MVC can be despite the FU animosity towards it, hence FUMVC :wink: 
+
+Related references on FUMVC inclue the [Lotus MVC pattern](https://matteomanferdini.com/ios-architecture-lotus-mvc-pattern/).
+
+The initial implementation focuses on a Core Data abstraction, specifically a Model Controller using generics to reduce boilerplate code in Core Data CRUD operations.
 
 [![Swift: 4.1.x](https://img.shields.io/badge/Swift-4.1.x-orange.svg)](https://swift.org/documentation/#the-swift-programming-language)
 [![Platform](https://img.shields.io/cocoapods/p/AFNetworking.svg)](https://cocoapods.org/pods/FUMVC)
@@ -16,11 +20,12 @@ iOS 11.0 or later, for `NSPersistentContainer` support.
 
 ## How to Install
 
-FUMVC is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+The FUMVC directory structure is set up to be available through [CocoaPods](https://cocoapods.org), but it currently can't be installed as a pod.
 
-```ruby
-pod 'FUMVC'
+Until then, to download `ModelController`, you can find it in the following directory structure:
+
+```
+FUMVC/Classes/ModelController.swift
 ```
 
 ## How to Use
