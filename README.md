@@ -1,6 +1,10 @@
 # FUMVC
 iOS Fundamentals of MVC.
 
+[![Swift: 4.1.x](https://img.shields.io/badge/Swift-4.1.x-orange.svg)](https://swift.org/documentation/#the-swift-programming-language)
+[![Platform](https://img.shields.io/cocoapods/p/AFNetworking.svg)](https://cocoapods.org/pods/FUMVC)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 ## Description
 
 The purpose of FUMVC is to provide common architectural abstractions in a very lean way, based on a clean and minimal MVC pattern.
@@ -10,10 +14,6 @@ Its implementation is embedded in the **Fundamentals of MVC**, and is intended t
 Related references on FUMVC inclue the [Lotus MVC pattern](https://matteomanferdini.com/ios-architecture-lotus-mvc-pattern/).
 
 The initial implementation focuses on a Core Data abstraction, specifically a Model Controller using generics to reduce boilerplate code in Core Data CRUD operations.
-
-[![Swift: 4.1.x](https://img.shields.io/badge/Swift-4.1.x-orange.svg)](https://swift.org/documentation/#the-swift-programming-language)
-[![Platform](https://img.shields.io/cocoapods/p/AFNetworking.svg)](https://cocoapods.org/pods/FUMVC)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Requirements
 iOS 11.0 or later, for `NSPersistentContainer` support.
