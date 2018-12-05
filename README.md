@@ -3,7 +3,7 @@ iOS Fundamentals of MVC.
 
 ## Description
 
-FUMVC is a library to demonstrate and provide common architectural abstractions in a very lean way, based on a clean and minimal MVC. Its usage is embedded in the **Fundamentals of MVC**, hence FUMVC ;)
+FUMVC is a library to demonstrate and provide common architectural abstractions in a very lean way, based on a clean and minimal MVC. Its usage is embedded in the **Fundamentals of MVC**, and is intended to demonstrate how elegant MVC can be despite the FU animosity towards it, hence FUMVC ;)
 
 Initially focuses on Core Data, specifically a Model Controller using generics to reduce boilerplate code in Core Data CRUD operations.
 
@@ -41,6 +41,15 @@ Then say for example you have an NSManagedObject subclass called Recipe, create 
 let newRecipe = modelController.add(Recipe.self)		
 newRecipe?.name = "Pizza"
 ```
+
+There are other methods for:
+
+    add(type:)
+    total(type:)
+    fetch(type: predicate: sort:)
+    save()
+    delete(by objectID:)
+    delete(type: predicate:)
 
 ## Example
 
