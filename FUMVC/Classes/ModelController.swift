@@ -10,7 +10,7 @@ import CoreData
 
 public class ModelController {
 	
-	typealias VoidCompletion = () -> ()
+	public typealias VoidCompletion = () -> ()
 	
 	// MARK: - Properties
 	
@@ -38,7 +38,7 @@ public class ModelController {
 	
 	// MARK: - Convenience Init
 	
-	convenience init(modelName model: String) {
+	public convenience init(modelName model: String) {
 		self.init()
 		modelName = model
 	}
@@ -47,7 +47,7 @@ public class ModelController {
 // MARK: - Add
 extension ModelController {
 	
-	func add<M: NSManagedObject>(_ type: M.Type) -> M? {
+	public func add<M: NSManagedObject>(_ type: M.Type) -> M? {
 		
 		var modelObject: M?
 		
@@ -62,10 +62,10 @@ extension ModelController {
 // MARK: - Fetch
 extension ModelController {
 	
-	typealias TotalCompletion = ((_ count: Int) -> ())
-	typealias FetchCompletion<M> = ((_ fetched: [M]) -> ())
+	public typealias TotalCompletion = ((_ count: Int) -> ())
+	public typealias FetchCompletion<M> = ((_ fetched: [M]) -> ())
 	
-	func total<M: NSManagedObject>(_ type: M.Type, _ completion: TotalCompletion?=nil) -> Int {
+	public func total<M: NSManagedObject>(_ type: M.Type, _ completion: TotalCompletion?=nil) -> Int {
 		
 		var count = 0
 		let entityName = String(describing: type)
@@ -96,7 +96,7 @@ extension ModelController {
 		return count
 	}
 	
-	func fetch<M: NSManagedObject>(_ type: M.Type,
+	public func fetch<M: NSManagedObject>(_ type: M.Type,
 								   predicate: NSPredicate?=nil,
 								   sort: NSSortDescriptor?=nil,
 								   _ completion: FetchCompletion<M>?=nil) -> [M]? {
@@ -137,7 +137,7 @@ extension ModelController {
 // MARK: - Save
 extension ModelController {
 	
-	func save(_ completion: VoidCompletion?=nil) {
+	public func save(_ completion: VoidCompletion?=nil) {
 		
 		context.perform {
 			if self.context.hasChanges {
@@ -156,7 +156,7 @@ extension ModelController {
 // MARK: - Delete
 extension ModelController {
 	
-	func delete(by objectID: NSManagedObjectID, _ completion: VoidCompletion?=nil) {
+	public func delete(by objectID: NSManagedObjectID, _ completion: VoidCompletion?=nil) {
 		
 		let managedObject = context.object(with: objectID)
 		
@@ -166,8 +166,7 @@ extension ModelController {
 		}
 	}
 	
-	func delete<M: NSManagedObject>(_ type: M.Type, predicate: NSPredicate?=nil, _ completion: VoidCompletion?=nil) {
-		
+	public func delete<M: NSManagedObject>(_ type: M.Type, predicate: NSPredicate?=nil, _ completion: VoidCompletion?=nil) {
 		
 		if let objects = fetch(type, predicate: predicate) {
 			for modelObject in objects {

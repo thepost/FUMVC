@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "87603C52EC404C7538F580E8E48CFDD9"
+               BlueprintIdentifier = "7B44CB1F6B5D73ECA578014FA2DF068A"
                BlueprintName = "FUMVC"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "FUMVC.framework">
