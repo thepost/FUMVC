@@ -7,10 +7,9 @@ FUMVC is a library to demonstrate and provide common architectural abstractions 
 
 Initially focuses on Core Data, specifically a Model Controller using generics to reduce boilerplate code in Core Data CRUD operations.
 
-[![CI Status](https://img.shields.io/travis/thepost/FUMVC.svg?style=flat)](https://travis-ci.org/thepost/FUMVC)
-[![Version](https://img.shields.io/cocoapods/v/FUMVC.svg?style=flat)](https://cocoapods.org/pods/FUMVC)
-[![License](https://img.shields.io/cocoapods/l/FUMVC.svg?style=flat)](https://cocoapods.org/pods/FUMVC)
-[![Platform](https://img.shields.io/cocoapods/p/FUMVC.svg?style=flat)](https://cocoapods.org/pods/FUMVC)
+[![Swift: 4.1.x](https://img.shields.io/badge/Swift-4.1.x-orange.svg)](https://swift.org/documentation/#the-swift-programming-language)
+[![Platform](https://img.shields.io/cocoapods/p/AFNetworking.svg)](https://cocoapods.org/pods/FUMVC)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Requirements
 iOS 11.0 or later, for `NSPersistentContainer` support.
