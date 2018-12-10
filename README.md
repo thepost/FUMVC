@@ -1,6 +1,7 @@
 # FUMVC
 iOS Fundamentals of MVC.
 
+[![Pod](https://img.shields.io/badge/pod-v0.1.0-blue.svg)](https://cocoapods.org/pods/FUMVC)
 [![Swift: 4.1.x](https://img.shields.io/badge/Swift-4.1.x-orange.svg)](https://swift.org/documentation/#the-swift-programming-language)
 [![Platform](https://img.shields.io/cocoapods/p/AFNetworking.svg)](https://cocoapods.org/pods/FUMVC)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -20,12 +21,14 @@ iOS 11.0 or later, for `NSPersistentContainer` support.
 
 ## How to Install
 
-The FUMVC directory structure is set up to be available through [CocoaPods](https://cocoapods.org), but it currently can't be installed as a pod.
+FUMVC is available through [CocoaPods](https://cocoapods.org/pods/FUMVC). Install by adding the following to the Podfile:
 
-Until then, to download `ModelController`, you can find it in the following directory structure:
 
 ```
-FUMVC/Classes/ModelController.swift
+target "MyApp" do
+  pod "FUMVC", "~> 0.1.0"
+end
+
 ```
 
 ## How to Use
