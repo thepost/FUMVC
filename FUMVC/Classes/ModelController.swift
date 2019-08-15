@@ -8,23 +8,61 @@
 
 import CoreData
 
-public class ModelController {
+protocol ModelCloudConfig {
+		
+	/// This to signify the usage of CloudKit with Core Data, only available in iOS 13+. NOTE: the container id used in CloudKit must match the `CFBundleIdentifier`!
+	var useCloudKit: Bool { get }
+}
+
+public class ModelController: ModelCloudConfig {
+	
+	var useCloudKit: Bool = false
 	
 	public typealias VoidCompletion = () -> ()
 	
 	// MARK: - Properties
 	
 	private var modelName: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? ""
-	
+		
 	lazy var persistentContainer: NSPersistentContainer = {
 		
-		let container = NSPersistentContainer(name: modelName)
+		var container = NSPersistentContainer(name: modelName)
+		
+		//Handle any config needed for CloudKit
+		if useCloudKit, #available(iOS 13.0, *) {
+			container = NSPersistentCloudKitContainer(name: modelName)
+			
+			guard let description = container.persistentStoreDescriptions.first else {
+					fatalError("Could not retrieve a persistent store description to enable Core Data with CloudKit.")
+			}
+
+			// initialize the CloudKit schema
+			let bundleID = "iCloud.\(Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") ?? "")"
+			let options = NSPersistentCloudKitContainerOptions(containerIdentifier: bundleID)
+			description.cloudKitContainerOptions = options
+			container.persistentStoreDescriptions = [description]
+		}
+		
 		container.loadPersistentStores(completionHandler: { (storeDescription, error) in
 			
 			if let error = error as NSError? {
 				fatalError("Unresolved error \(error), \(error.userInfo)")
 			}
 		})
+		
+		// TODO: Create a way to only inlcude this optionally before pushing a new FUMVC pod version - useCloudKit is not a suitable flag for this!!!
+		if useCloudKit, #available(iOS 13.0, *) {
+			do {
+				// Uncomment to do a dry run and print the CK records that are made.
+				//try container.initializeCloudKitSchema(options: [.dryRun, .printSchema])
+				// Only uncomment to initialize your schema - move from production code!
+				let cloudContainer: NSPersistentCloudKitContainer = container as! NSPersistentCloudKitContainer
+				try cloudContainer.initializeCloudKitSchema()
+			}
+			catch {
+				print("Unable to initialize CloudKit schema: \(error.localizedDescription)")
+			}
+		}
 		return container
 	}()
 	
@@ -38,11 +76,16 @@ public class ModelController {
 	
 	// MARK: - Convenience Init
 	
-	public convenience init(modelName model: String) {
+	public convenience init(modelName model: String, useCloudKit cloudKit: Bool?=nil) {
 		self.init()
-		modelName = model
+		self.modelName = model
+		
+		if let useCloudKit = cloudKit {
+			self.useCloudKit = useCloudKit
+		}
 	}
 }
+
 
 // MARK: - Add
 extension ModelController {
